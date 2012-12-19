@@ -16,13 +16,16 @@ class HomeController < ApplicationController
 
 
     url_regex = /<a .*?href.*?['"]([^'"]*)['"].*?>\w*<\/a>/m
-    image_regex = /<img .* src=[^'"]*['"].*?([^'"]*).*>/m
+    image_regex = /<img .*?src.*?['"]([^'"]*)['"].*?>/m
     urls = html.scan(url_regex)  #this is an array of all of the urls on the page
     urls.flatten!
     images = html.scan(image_regex)  #This is an array of all of the images on the page
     images.flatten!
 
     images.each do |image|
+      if URI.parse(image).relative?
+        image = params[:url] +image
+      end
       i = Image.new
       i.url = image
       i.save
@@ -33,7 +36,7 @@ class HomeController < ApplicationController
       u.url = url
       u.save
     end
-
+binding.pry
     render :json => Image.all
   end
 

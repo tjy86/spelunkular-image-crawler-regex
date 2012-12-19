@@ -11,10 +11,14 @@ function whatup () {
   url: "/data",
   data: { url: url, depth: depth }
   }).done(function( msg ) {
-    console.log(msg);
-    // $('#images').append();
+    $('#images').empty();
+    for (var i=0; i<msg.length; i++)
+    {
+      url = msg[i].url
+      img = $('<img>')
+      img.attr('src', url)
+      $('#images').append(img);
+    }
 });
-
-
 
 }
