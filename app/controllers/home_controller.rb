@@ -34,7 +34,6 @@ class HomeController < ApplicationController
       u.save
     end
 
-    binding.pry
     render :json => Image.all
   end
 
