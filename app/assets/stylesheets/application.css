@@ -14,7 +14,8 @@
 
 body {
   background: url('subtle_dots.png');
-  color: white;
+  color: black;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 input {
@@ -22,6 +23,7 @@ input {
   font-size: 100%;
   vertical-align: middle;
   border-radius: 5px;
+  display: inline;
 }
 
 html input[type="button"],
@@ -31,6 +33,11 @@ input[type="submit"] {
   -webkit-appearance: button;
 }
 
+h1 {
+  padding: 20px;
+  text-align: center;
+}
+
 
 #wrapper {
   width: 960px;
@@ -38,19 +45,17 @@ input[type="submit"] {
 }
 
 #container {
-  background: gray;
-  width: 300px;
+  width: 384px;
   height: 150px;
   margin: auto;
-  padding: 20px;
   border-radius: 3px;
-  margin-top: 80px;  
+  margin-top: 10px;  
 }
 
 .submit {
   padding:10px 30px;
-  background: white;
-  border-bottom: 2px solid green;
+  background: pink;
+  border-bottom: 2px solid red;
   border-top: none;
   border-right: none;
   border-left: none;
@@ -61,4 +66,11 @@ input[type="submit"] {
   margin-top:12px;
   border-radius: 10px;
   margin-left: 106px;
+  display: inline;
+  float: right;
+}
+
+#images {
+  width: 950px;
+  margin: auto;
 }
