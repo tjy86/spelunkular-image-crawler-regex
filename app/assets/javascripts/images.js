@@ -1,6 +1,6 @@
 $(function(){
   $('#submit').click(whatup);
-  $('#images').append();
+  
 });
 
 function whatup () {
@@ -11,7 +11,10 @@ function whatup () {
   url: "/data",
   data: { url: url, depth: depth }
   }).done(function( msg ) {
-  alert( "Data Saved: " + msg );
+    console.log(msg);
+    // $('#images').append();
 });
+
+
 
 }
