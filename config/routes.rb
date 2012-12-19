@@ -1,5 +1,7 @@
 SpelunkularImageCrawlerRegex::Application.routes.draw do
   root :to => 'home#index'
+  post '/data' => 'home#data'
+  get '/show' => 'home#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
