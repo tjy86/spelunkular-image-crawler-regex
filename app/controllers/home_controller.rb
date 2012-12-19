@@ -1,13 +1,13 @@
 class HomeController < ApplicationController
   def index
   end
-  
+
 
   def data
     Image.delete_all
     Link.delete_all
 
-    # begin 
+    # begin
       html = HTTParty.get(params[:url])
     #   rescue
     #   return
@@ -33,7 +33,8 @@ class HomeController < ApplicationController
       u.url = url
       u.save
     end
-    # binding.pry
+
+    binding.pry
     render :json => Image.all
   end
 
