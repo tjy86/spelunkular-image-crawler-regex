@@ -2,15 +2,18 @@ class HomeController < ApplicationController
   def index
   end
   
+
   def data
     Image.delete_all
     Link.delete_all
 
     # begin 
-      html = HTTParty.get('http://biandangnyc.com')
+      html = HTTParty.get(params[:url])
     #   rescue
     #   return
     # end
+
+
 
     url_regex = /<a .*?href.*?['"]([^'"]*)['"].*?>\w*<\/a>/m
     image_regex = /<img .* src=[^'"]*['"].*?([^'"]*).*>/m
@@ -34,9 +37,4 @@ class HomeController < ApplicationController
     render :json => Image.all
   end
 
-  def show
-    images = Image.all
-    links = Link.all
-
-  end
 end
