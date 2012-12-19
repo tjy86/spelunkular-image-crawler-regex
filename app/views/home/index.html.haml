@@ -1,7 +1,7 @@
-#controls
+#container
   = form_tag '/', :remote => true do 
-    = text_field_tag 'url', '', :id =>'url'
-    = number_field_tag 'depth', '', :id => 'depth'
-    #submit= submit_tag 'The Matix!'
+    = text_field_tag 'url', '', :id =>'url', :placeholder => 'Enter URL'
+    = number_field_tag 'depth', '', :id => 'depth', :placeholder => '1'
+    #submit= submit_tag 'The Matrix!', :class => 'submit'
 
 #images 

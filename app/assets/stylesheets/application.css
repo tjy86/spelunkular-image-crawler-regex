@@ -13,5 +13,27 @@
  */
 
 body {
-  background: ;
+  background: url('stressed_linen.png');
+  color: white;
+}
+
+#container {
+  width: 960px;
+  margin: auto;
+}
+
+.submit {
+  padding:10px 30px;
+  background-color: #ABABAB;
+  border-bottom: 4px solid green;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  font-weight: 800;
+  font-size:14px;
+  font-family: 'Monda', sans-serif;
+  color: black;
+  margin-top:12px;
+  border-radius: 10px;
+  margin-left: 106px;
 }
