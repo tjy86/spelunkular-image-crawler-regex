@@ -10,4 +10,8 @@
 #
 
 class Link < ActiveRecord::Base
+  # def self.images
+
+  # end
+
 end
