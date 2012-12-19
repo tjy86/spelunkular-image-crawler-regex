@@ -6,6 +6,11 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'httparty'
+gem 'haml'
+gem 'pry-rails'
+gem 'better_errors'
+gem 'binding_of_caller'
 
 
 # Gems used only for assets and not required
