@@ -12,6 +12,8 @@ gem 'pry-rails'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'rmagick'
+gem 'ruby-prof'
+gem 'test-unit'
 
 
 # Gems used only for assets and not required
