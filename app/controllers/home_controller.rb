@@ -21,41 +21,43 @@ class HomeController < ApplicationController
     while (i < depth)
 
       links = Link.where(:depth => i)
-
       links.each do |link|
+        begin
           html = HTTParty.get(link.url)
-
-          urls = html.scan(url_regex)  #this is an array of all of the urls on the page
-          urls.flatten!
-
-          images = html.scan(image_regex)  #This is an array of all of the images on the page
-          images.flatten!
-
-          images.each do |image|
-            if URI.parse(image).relative?
-              image = params[:url] +image
-            end
-            i = Image.new
-            i.url = image
-            i.save
-          end
-      end
-
-      i =+ 1
-
-      urls.each do |url|
-        if URI.parse(url).relative?
-          url = params[:url] + url
+        rescue
         end
-        u = Link.new
-        u.url = url
-        u.depth = i
-        u.save
+
+        images = html.scan(image_regex)  #This is an array of all of the images on the page
+        images.flatten!
+
+        images.each do |image|
+          image = params[:url] + image if URI.parse(image).relative?
+          a = Image.new
+          a.url = image
+          a.save
+        end
+
+        j = i + 1
+
+        urls = html.scan(url_regex)  #this is an array of all of the urls on the page
+        urls.flatten!
+
+        urls.each do |url|
+          begin
+            url = params[:url] + url if URI.parse(url).relative?
+            u = Link.new
+            u.url = url
+            u.depth = j
+            u.save
+          rescue
+          end
+        end
+
       end
+      i += 1
     end
-
     render :json => Image.all
-
   end
-
 end
+
+
